@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//WebContent/jsp/main.jsp=UTF-8
+encoding//WebContent/login.jsp=UTF-8
+encoding//WebContent/resource/js/jquery-validation/messages_cn.js=UTF-8
+encoding//WebContent/resource/js/ligerUIlib/accordion.js=UTF-8
+encoding//src/cn/xysfxy/frame/session/interceptor/SessionUtil.java=UTF-8

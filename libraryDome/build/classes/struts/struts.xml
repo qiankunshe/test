@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定Struts 2配置文件的DTD信息 -->
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- Struts 2配置文件的根元素 -->
+<struts>
+	<!-- 配置基础包 -->
+	<package name="basepack" extends="struts-default" abstract="true">
+		<interceptors>
+			<!-- 定义权限控制拦截器 -->
+			<interceptor name="authority"
+                class="cn.xysfxy.frame.session.interceptor.AuthorizationInterceptor" />
+            <interceptor name="sessionout"
+                class="cn.xysfxy.frame.session.interceptor.SessionIterceptor" />
+			<interceptor-stack name="asstack">
+				<interceptor-ref name="defaultStack" />
+				</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="asstack"></default-interceptor-ref>
+		
+		 <!-- 定义全局处理结果 -->
+        <global-results>
+        <!-- 逻辑名为login的结果，映射到/login.jsp页面 -->
+        <result name="loginTrue">/jsp/system/login/login.jsp</result>
+        </global-results>
+        
+	</package>
+	
+	
+	<package name="userAjax" extends="json-default">
+		<action name="loginAjax" class="loginAction" method="login">
+   			<result type="json"></result>
+   		</action>
+   		<action name="showOpen" class="cn.xysfxy.template.action.TemplateAction" >
+   			<result type="json"></result>
+   		</action>
+	</package>
+</struts>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >   
+  
+<!-- 表名:tab_a -->   
+<sqlMap namespace="userMap"> 
+    <typeAlias alias="user" type="cn.xysfxy.user.vo.UserVO"/>
+    
+    <resultMap  class="user" id="userVO">
+    	<result property="userID" column="userID"/>
+    	<result property="name" column="name"/>
+    	<result property="password" column="password"/>
+    	<result property="createdatec" column="createdatec"/>
+    	<result property="isDeletec" column="isDeletec"/>
+    </resultMap>
+    <select id="queryUser" resultClass="user">
+		select * from sys_user
+	</select>
+    
+	<select id="queryLogin" resultMap="userVO" parameterClass="java.util.HashMap">
+		select yu.userID,yu.name,yu.password,yu.isDeletec,yu.createdatec from sys_user yu
+		where yu.name = #userName# and yu.password = #userPassWrod#
+	</select>
+	
+	<insert id="insert1" parameterClass="user">
+		insert into sys_user values(#userID#,#name#)
+	</insert>
+</sqlMap> 

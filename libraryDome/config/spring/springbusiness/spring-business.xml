@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!-- 局部单元测试使用，不正式发布，不要删除 -->   
+<beans xmlns="http://www.springframework.org/schema/beans"   
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+             xmlns:jee="http://www.springframework.org/schema/jee"   
+             xmlns:aop="http://www.springframework.org/schema/aop"   
+             xmlns:tx="http://www.springframework.org/schema/tx"   
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd   
+                     http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd   
+                     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd   
+                     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">   
+  
+      <bean id="baseSerive" class="cn.xysfxy.base.business.service.impl.BaseServiceImpl" >
+      			<property name="baseDAO" ref="baseDAO"></property>
+      </bean>  
+ 		
+ 	  <bean id="baseDAO" class="cn.xysfxy.base.business.dao.impl.BaseDAOImpl">
+ 	  			<property name="sqlMapClient"  ref="sqlMapClientTemplate"></property>
+ 	  </bean>
+ 		
+</beans>   

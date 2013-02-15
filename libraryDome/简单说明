@@ -1,0 +1,10 @@
+是一个简单登录功能
+
+有数据库支持
+
+需要在mysql中建立一个
+
+
+library 的数据库 编码为utf-8
+
+当前项目需要引用tomcat lib下的servlet-api.jar 和 jsp-api.jar
